@@ -8,8 +8,8 @@ import { Todo } from '../../Components/todos/todo';
 })
 export class TodosComponent implements OnInit {
 
-  todoList: any;
-  localStorageItem: string | undefined;
+  todoList!: Todo[];
+  localStorageItem: string;
 
   constructor() {
     this.localStorageItem = localStorage.getItem("todos")!;
@@ -20,7 +20,7 @@ export class TodosComponent implements OnInit {
   }
 
   removeTodo(todo: Todo){
-      const index = this.todoList?.indexOf(todo);
+      const index = this.todoList.indexOf(todo);
       this.todoList.splice(index!, 1);
       localStorage.setItem("todos", JSON.stringify(this.todoList));
   }
@@ -32,7 +32,7 @@ export class TodosComponent implements OnInit {
   }
 
   toggleDoneCheckBox(todo: Todo){
-    const index = this.todoList?.indexOf(todo);
+    const index = this.todoList.indexOf(todo);
     this.todoList[index].isActive = !this.todoList[index].isActive  
     localStorage.setItem("todos", JSON.stringify(this.todoList));
   }

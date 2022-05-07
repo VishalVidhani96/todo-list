@@ -1,16 +1,16 @@
 <div class="accordion" id="accordionExample">
     <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
-            <button [ngClass]="{'strike': !todo?.isActive, 'accordion-button':true}" type="button" data-bs-toggle="collapse"
-                attr.data-bs-target="#collapse{{todo?.id}}" aria-expanded="true"
-                attr.aria-controls="collapse{{todo?.id}}">
-                {{todo?.id}}-{{todo?.title}}
+            <button [ngClass]="{'strike': !todo.isActive, 'accordion-button':true}" type="button" data-bs-toggle="collapse"
+                attr.data-bs-target="#collapse{{todo.id}}" aria-expanded="true"
+                attr.aria-controls="collapse{{todo.id}}">
+                {{todo.id}}-{{todo.title}}
             </button>
         </h2>
-        <div id="collapse{{todo?.id}}" class="accordion-collapse collapse" aria-labelledby="headingOne"
+        <div id="collapse{{todo.id}}" class="accordion-collapse collapse" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
-            <div [ngClass]="{'strike': !todo?.isActive,'accordion-body':true}">
-                <strong>{{todo?.description}}</strong>
+            <div [ngClass]="{'strike': !todo.isActive,'accordion-body':true}">
+                <strong>{{todo.description}}</strong>
                 <div class="my-3">
                     <button class="btn btn-danger" (click)="onClick(todo)">Remove</button>
                 </div>
@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="mb-4 form-check">
-        <input type="checkbox" class="form-check-input" id="Check{{todo?.id}}" (click)="onDoneCheckedBoxClick(todo)" [checked]="!todo?.isActive">
-        <label class="form-check-label" for="Check{{todo?.id}}">Todo Complete</label>
+        <input type="checkbox" class="form-check-input" id="Check{{todo.id}}" (click)="onDoneCheckedBoxClick(todo)" [checked]="!todo.isActive">
+        <label class="form-check-label" for="Check{{todo.id}}">Todo Complete</label>
     </div>        
 </div>

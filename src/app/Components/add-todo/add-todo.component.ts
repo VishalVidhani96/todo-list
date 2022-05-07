@@ -9,14 +9,14 @@ import {NgForm} from '@angular/forms'
 })
 export class AddTodoComponent implements OnInit {
 
-  title:String | undefined;
-  description:String | undefined;
-  id:number | undefined;
+  title!: String;
+  description!:String;
+  id!:number;
 
   @Output() todoAdd: EventEmitter<Todo> = new EventEmitter();
 
-  localStorageItem: string | undefined;
-  todoList: Todo[] | undefined ;
+  localStorageItem!: string;
+  todoList!: Todo[] ;
 
   constructor() {
   }
@@ -27,9 +27,9 @@ export class AddTodoComponent implements OnInit {
   onAdd(addTodoForm: NgForm){
     this.localStorageItem = localStorage.getItem("todos")!;
     this.todoList = this.localStorageItem == ""? [] : JSON.parse(this.localStorageItem);
-    const nextId = this.todoList?.length! + 1;  
+    const nextId = this.todoList.length + 1;  
     const todo = {
-      id : this.todoList?.find(item => item.id === nextId)? nextId + 1 : nextId,
+      id : this.todoList.find(item => item.id === nextId)? nextId + 1 : nextId,
       title: this.title,
       description: this.description,
       isActive: true

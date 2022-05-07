@@ -1,6 +1,6 @@
 export class Todo{
-    id: number | undefined
-    title: String | undefined
-    description: String | undefined
-    isActive: boolean | undefined
+    id!: number
+    title!: String
+    description!: String 
+    isActive: boolean = false
 }
