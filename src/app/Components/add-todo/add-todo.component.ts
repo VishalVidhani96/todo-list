@@ -25,8 +25,8 @@ export class AddTodoComponent implements OnInit {
   }
 
   onAdd(addTodoForm: NgForm){
-    this.localStorageItem = localStorage.getItem("todos")!;
-    this.todoList = this.localStorageItem == ""? [] : JSON.parse(this.localStorageItem);
+    this.localStorageItem = sessionStorage.getItem("todos")!;
+    this.todoList = this.localStorageItem == null? [] : JSON.parse(this.localStorageItem);
     const nextId = this.todoList.length + 1;  
     const todo = {
       id : this.todoList.find(item => item.id === nextId)? nextId + 1 : nextId,
